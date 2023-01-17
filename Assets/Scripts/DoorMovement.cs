@@ -10,11 +10,11 @@ public class DoorMovement : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
-    private PlayerInteraction raycastedObj;
+    private DoorController raycastedObj;
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.Mouse0;
-
     [SerializeField] private Image crosshair = null;
+
     private bool isCrosshairActive;
     private bool doOnce;
 
@@ -33,7 +33,7 @@ public class DoorMovement : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    raycastedObj = hit.collider.gameObject.GetComponent<PlayerInteraction>();
+                    raycastedObj = hit.collider.gameObject.GetComponent<DoorController>();
                     CrosshairChange(true);
                 }
 
